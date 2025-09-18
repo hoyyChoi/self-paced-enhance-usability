@@ -32,6 +32,7 @@ const FlightBooking = () => {
             className='button-text'
             onClick={decrementCount}
             aria-label='인원 수 줄이기'
+            disabled={adultCount === 1}
           >
             -
           </button>
@@ -40,10 +41,23 @@ const FlightBooking = () => {
             className='button-text'
             onClick={incrementCount}
             aria-label='인원 수 늘리기'
+            disabled={adultCount === MAX_PASSENGERS}
           >
             +
           </button>
         </div>
+
+        {adultCount === 1 && (
+          <div role='alert' className='visually-hidden'>
+            최소 인원입니다
+          </div>
+        )}
+
+        {adultCount === MAX_PASSENGERS && (
+          <div role='alert' className='visually-hidden'>
+            최대 인원입니다
+          </div>
+        )}
       </div>
       <button className='search-button'>항공편 검색</button>
     </div>
