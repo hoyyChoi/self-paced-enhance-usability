@@ -16,21 +16,36 @@ const FlightBooking = () => {
   };
 
   return (
-    <div className="flight-booking">
-      <h2 className="heading-2-text">항공권 예매</h2>
-      <div className="passenger-count">
-        <span className="body-text">성인</span>
-        <div className="counter">
-          <button className="button-text" onClick={decrementCount}>
+    <div className='flight-booking'>
+      <h2 className='heading-2-text'>항공권 예매</h2>
+      <div className='passenger-count'>
+        <span className='body-text'>성인</span>
+        <div
+          className='counter'
+          role='spinbutton'
+          aria-label='인원 수'
+          aria-valuenow={adultCount}
+          aria-valuemin={1}
+          aria-valuemax={MAX_PASSENGERS}
+        >
+          <button
+            className='button-text'
+            onClick={decrementCount}
+            aria-label='인원 수 줄이기'
+          >
             -
           </button>
           <span>{adultCount}</span>
-          <button className="button-text" onClick={incrementCount}>
+          <button
+            className='button-text'
+            onClick={incrementCount}
+            aria-label='인원 수 늘리기'
+          >
             +
           </button>
         </div>
       </div>
-      <button className="search-button">항공편 검색</button>
+      <button className='search-button'>항공편 검색</button>
     </div>
   );
 };
